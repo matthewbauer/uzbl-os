@@ -1,0 +1,9 @@
+#
+# patch file for /etc/rc.conf
+#
+
+MOD_AUTOLOAD="yes"
+
+HOSTNAME="uzbl-os"
+
+DAEMONS=(syslog-ng)

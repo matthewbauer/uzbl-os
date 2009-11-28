@@ -1,0 +1,37 @@
+# === Handlers ===============================================================
+
+set download_handler   = spawn @scripts_dir/download.sh
+set cookie_handler     = talk_to_socket $XDG_CACHE_HOME/uzbl/cookie_daemon_socket
+set scheme_handler     = sync_spawn @scripts_dir/scheme.py
+
+# New window handler options
+set new_window         = sh 'echo uri "$8" > $4' # open in same window
+
+# === Core settings ==========================================================
+
+set useragent         = Uzbl (Webkit @WEBKIT_MAJOR.@WEBKIT_MINOR.@WEBKIT_MICRO) (@(uname -o)@ @(uname -m)@ [@ARCH_UZBL]) (Commit @COMMIT)
+set fifo_dir          = /tmp
+set socket_dir        = /tmp
+
+# === command editing configuration ==========================================
+
+# you'll want this at the very least
+@bind <Return>       = event KEYCMD_EXEC_CURRENT
+@bind <Escape>       = @set_mode
+
+# basic searching
+@bind <Home>         = event SET_CURSOR_POS 0
+@bind <End>          = event SET_CURSOR_POS -1
+@bind <Left>         = event SET_CURSOR_POS -
+@bind <Right>        = event SET_CURSOR_POS +
+@bind <BackSpace>    = event KEYCMD_BACKSPACE
+@bind <Delete>       = event KEYCMD_DELETE
+
+# === Post-load misc commands  ===============================================
+
+set always_insert_mode = true
+
+js "platform.shell = function(command){Uzbl.run('spawn sh -u web -c \"' + command + '\"')}"
+
+# Set the "home" page.
+#set uri = /srv/http/home.html 

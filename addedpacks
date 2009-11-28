@@ -1,0 +1,25 @@
+# +++ REQUIRED
+larch-live
+squashfs-tools
+lzop
+kernel26
+syslinux
+aufs2
+aufs2-util
+# --- REQUIRED
+
+rt2x00-rt71w-fw
+rt2x00-rt61-fw
+ipw2100-fw
+ipw2200-fw
+iwlwifi-3945-ucode
+iwlwifi-4965-ucode
+iwlwifi-5000-ucode
+zd1211-firmware
+
+xorg
+xorg-video-drivers
+xorg-input-drivers
+
+ratpoison
+uzbl-git
