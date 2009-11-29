@@ -22,4 +22,4 @@ xorg-video-drivers
 xorg-input-drivers
 
 ratpoison
-uzbl-git
+#uzbl-git

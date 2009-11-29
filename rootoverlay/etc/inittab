@@ -26,6 +26,6 @@ c1:2345:respawn:/sbin/agetty -8 38400 tty1 linux
 
 ca::ctrlaltdel:/sbin/shutdown -t3 -r now
 
-x:5:once:/bin/su root -c /usr/bin/startx
+#x:5:once:/bin/su root -c /usr/bin/startx
 
 # End of file
