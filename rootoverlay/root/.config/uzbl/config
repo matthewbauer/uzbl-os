@@ -1,3 +1,25 @@
+# === Shortcuts ==============================================================
+
+# request BIND <keycmd> = <command>
+set bind           = request BIND
+# request MODE_CONFIG <mode> <key> = <value
+set mode_config    = request MODE_CONFIG
+# request TOGGLE_MODES <mode1> <mode2> ... <moden>
+set toggle_modes   = request TOGGLE_MODES
+# request ON_EVENT <EVENT_NAME> <command>
+set on_event       = request ON_EVENT
+# request PROGRESS_CONFIG <key> = <value>
+set progress       = request PROGRESS_CONFIG
+# request MODMAP From To
+set modmap         = request MODMAP
+
+set set_mode       = set mode =
+set set_status     = set status_message =
+set shell_cmd      = sh -c
+
+# Spawn path shortcuts. In spawn the first dir+path match is used in "dir1:dir2:dir3:executable"
+set scripts_dir    = $XDG_DATA_HOME/uzbl:/usr/local/share/uzbl/examples/data/uzbl:scripts
+
 # === Handlers ===============================================================
 
 set download_handler   = spawn @scripts_dir/download.sh
@@ -31,8 +53,8 @@ set socket_dir        = /tmp
 
 set always_insert_mode = true
 
-js "platform.shell = function(command){Uzbl.run('spawn sh -u web -c \"' + command + '\"')}"
-js "platform.sudo = function(command){Uzbl.run('spawn "Xdialog --yesno \"Are you sure you want to give ' + window.location + ' root priveleges? They will run command: ' + command + ' \" 10 120 --fill --stdout --default-no"')}"
+js "platform.shell = function(command){return Uzbl.run('spawn sh -u web -c \"' + command + '\"')}"
+#js "platform.sudo = function(command){return Uzbl.run('spawn Xdialog --yesno \"Are you sure you want to give ' + window.location + ' root priveleges? They will run command: ' + command + ' \" 10 120 --fill --stdout --default-no; if [ $? == 0 ]; then ' + command + ';')}"
 
 # Set the "home" page.
 #set uri = /srv/http/home.html 

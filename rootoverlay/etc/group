@@ -3,3 +3,4 @@ bin::1:root,bin,daemon
 daemon::2:root,bin,daemon
 sys::3:root,bin
 adm::4:root,daemon
+log::19:root

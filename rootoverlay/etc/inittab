@@ -15,6 +15,9 @@ id:5:initdefault:
 
 rc::sysinit:/etc/rc.sysinit
 rm:2345:wait:/etc/rc.multi
+rh:06:wait:/etc/rc.shutdown
+su:S:wait:/sbin/sulogin -p
+rs:S1:wait:/etc/rc.single
 
 # -8 options fixes umlauts problem on login
 c1:2345:respawn:/sbin/agetty -8 38400 tty1 linux
@@ -26,6 +29,6 @@ c1:2345:respawn:/sbin/agetty -8 38400 tty1 linux
 
 ca::ctrlaltdel:/sbin/shutdown -t3 -r now
 
-#x:5:once:/bin/su root -c /usr/bin/startx
+x:5:once:/bin/su root -c /usr/bin/startx &> /dev/null
 
 # End of file

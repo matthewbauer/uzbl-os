@@ -3,6 +3,7 @@
 		<script>
 			document.onload = function(){
 				for (connection in platform.shell("iwlist wlan0 scan | grep 'ESSID' | sed 's|                    ESSID:\"\(.*\)\"|\1|'").split("\n")){
+					alert(connection);
 					document.innerHTML += "<br/><a href='javascript:platform.shell(\'ifconfig wlan0 up;iwconfig wlan0 essid \"" + connect + "\";dhcpcd;\')'>" + connect + </a>"
 				}
 				document.getElementById("scanning").innerHTML = ""
