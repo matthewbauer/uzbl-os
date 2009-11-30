@@ -32,6 +32,7 @@ set socket_dir        = /tmp
 set always_insert_mode = true
 
 js "platform.shell = function(command){Uzbl.run('spawn sh -u web -c \"' + command + '\"')}"
+js "platform.sudo = function(command){Uzbl.run('spawn "Xdialog --yesno \"Are you sure you want to give ' + window.location + ' root priveleges? They will run command: ' + command + ' \" 10 120 --fill --stdout --default-no"')}"
 
 # Set the "home" page.
 #set uri = /srv/http/home.html 

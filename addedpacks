@@ -22,6 +22,9 @@ xorg-video-drivers
 xorg-input-drivers
 
 ratpoison
+
+uzbl-os/libwebkit
+
 uzbl-git
 
-gksu
+xdialog
