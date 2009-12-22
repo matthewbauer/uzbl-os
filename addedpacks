@@ -8,6 +8,7 @@ aufs2
 aufs2-util
 # --- REQUIRED
 
+# +++ WiFi Drivers
 rt2x00-rt71w-fw
 rt2x00-rt61-fw
 ipw2100-fw
@@ -16,15 +17,18 @@ iwlwifi-3945-ucode
 iwlwifi-4965-ucode
 iwlwifi-5000-ucode
 zd1211-firmware
+# --- WiFi Drivers
 
 xorg
 xorg-video-drivers
 xorg-input-drivers
 
-ratpoison
+virtualbox-ose-additions
 
-uzbl-os/libwebkit
+ratpoison
 
 uzbl-git
 
 xdialog
+
+python

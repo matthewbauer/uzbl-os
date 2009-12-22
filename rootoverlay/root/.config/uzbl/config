@@ -4,16 +4,9 @@
 set bind           = request BIND
 # request MODE_CONFIG <mode> <key> = <value
 set mode_config    = request MODE_CONFIG
-# request TOGGLE_MODES <mode1> <mode2> ... <moden>
-set toggle_modes   = request TOGGLE_MODES
 # request ON_EVENT <EVENT_NAME> <command>
 set on_event       = request ON_EVENT
-# request PROGRESS_CONFIG <key> = <value>
-set progress       = request PROGRESS_CONFIG
-# request MODMAP From To
-set modmap         = request MODMAP
 
-set set_mode       = set mode =
 set set_status     = set status_message =
 set shell_cmd      = sh -c
 
@@ -35,26 +28,13 @@ set useragent         = Uzbl (Webkit @WEBKIT_MAJOR.@WEBKIT_MINOR.@WEBKIT_MICRO) 
 set fifo_dir          = /tmp
 set socket_dir        = /tmp
 
-# === command editing configuration ==========================================
-
-# you'll want this at the very least
-@bind <Return>       = event KEYCMD_EXEC_CURRENT
-@bind <Escape>       = @set_mode
-
-# basic searching
-@bind <Home>         = event SET_CURSOR_POS 0
-@bind <End>          = event SET_CURSOR_POS -1
-@bind <Left>         = event SET_CURSOR_POS -
-@bind <Right>        = event SET_CURSOR_POS +
-@bind <BackSpace>    = event KEYCMD_BACKSPACE
-@bind <Delete>       = event KEYCMD_DELETE
-
 # === Post-load misc commands  ===============================================
 
 set always_insert_mode = true
 
-js "platform.shell = function(command){return Uzbl.run('spawn sh -u web -c \"' + command + '\"')}"
-#js "platform.sudo = function(command){return Uzbl.run('spawn Xdialog --yesno \"Are you sure you want to give ' + window.location + ' root priveleges? They will run command: ' + command + ' \" 10 120 --fill --stdout --default-no; if [ $? == 0 ]; then ' + command + ';')}"
+script @scripts_dir/shell.js
 
 # Set the "home" page.
-#set uri = /srv/http/home.html 
+set uri = file:///srv/http/load
+
+#@on_event LOAD_ERROR set inject_html = @scripts_dir/load-error.sh '%1')\@

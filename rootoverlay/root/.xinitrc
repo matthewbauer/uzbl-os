@@ -1,5 +1,8 @@
+xsetroot -cursor_name left_ptr
+
 exec ratpoison &
+pid=$!
 
-xsetroot -cursor_name left_ptr &
+uzbl-browser file:///srv/http/load &
 
-uzbl-core /srv/http/index.html
+wait $pid
