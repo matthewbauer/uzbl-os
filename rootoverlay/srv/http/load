@@ -1,8 +1,0 @@
-<html>
-	<body>
-		<div id="scanning">Scanning for Internet Connections...</div>
-		<script>
-			window.shell("iwlist wlan0 scan");
-		</script>
-</body>
-</html>

@@ -1,0 +1,13 @@
+<html>
+	<body>
+		<div id="scanning">Scanning for Internet Connections...</div>
+		<script>
+			window.shell("Xdialog");
+			//alert(window.shell("echo 1"));
+			//alert(window.shell("iwlist wlan0 scan | grep 'ESSID:' | sed 's|                    ESSID:\"\(.*\)\"|\1|'").split("\n"));
+			//for (essid in window.shell("iwlist wlan0 scan | grep 'ESSID:' | sed 's|                    ESSID:\"\(.*\)\"|\1|'").split("\n")){
+			//	document.write(essid + "<br>");
+			//}
+		</script>
+</body>
+</html>
